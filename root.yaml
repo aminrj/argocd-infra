@@ -4,7 +4,7 @@ metadata:
   name: root
   namespace: argocd
 spec:
-  project: root
+  project: argocd-deployment
   source:
     repoURL: https://github.com/aminrj/argocd-infra.git
     targetRevision: HEAD
