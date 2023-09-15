@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: test-application
   namespace: test
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   # The project the application belongs to.
   project: test-project

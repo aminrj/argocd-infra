@@ -9,6 +9,6 @@ spec:
     server: https://kubernetes.default.svc
     namespace: argocd
   sources:
-    - repoURL: https://github.com/argoproj/argo-cd
+    - repoURL: https://github.com/argoproj/argoproj-deployments
       targetRevision: v2.8.2
-      path: /manifests/install
+      path: /argocd/overlays/production
