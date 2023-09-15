@@ -10,5 +10,5 @@ spec:
     namespace: argocd
   sources:
     - repoURL: https://github.com/argoproj/argoproj-deployments
-      targetRevision: v2.8.2
+      targetRevision: HEAD
       path: /argocd/overlays/production
