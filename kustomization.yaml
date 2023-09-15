@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - argocd-deployment
   - applications
+  - projects
