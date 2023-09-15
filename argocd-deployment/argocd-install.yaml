@@ -12,3 +12,8 @@ spec:
     - repoURL: https://github.com/argoproj/argoproj-deployments
       targetRevision: HEAD
       path: /argocd/overlays/production
+  # Sync policy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
