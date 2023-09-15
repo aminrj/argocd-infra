@@ -11,4 +11,4 @@ spec:
   sources:
     - repoURL: https://github.com/argoproj/argo-cd
       targetRevision: 2.8.2
-      path: /manifests/cluster-install
+      path: /manifests/install
