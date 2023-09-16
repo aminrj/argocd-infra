@@ -5,7 +5,7 @@ metadata:
   namespace: test
 spec:
   # The project the application belongs to.
-  project: test-project
+  project: default
 
   # Source of the application manifests
   source:
