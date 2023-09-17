@@ -3,6 +3,31 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: cluster-tools
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: cluster-tools
+  source:
+    repoURL: https://github.com/aminrj/argocd-infra.git
+    targetRevision: HEAD
+    path: cluster-tools
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cluster-tools
+  # Sync policy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: staging
   namespace: argocd
   finalizers:

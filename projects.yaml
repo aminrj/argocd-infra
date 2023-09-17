@@ -3,6 +3,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
+  name: cluster-tools
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Cluster tools project
+  sourceRepos:
+  - '*' 
+  destinations:
+  - server: https://kubernetes.default.svc
+    namespace: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
   name: production
   namespace: argocd
   finalizers:
