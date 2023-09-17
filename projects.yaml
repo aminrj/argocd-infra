@@ -1,21 +1,44 @@
+---
+
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: projects
-  namespace: default
+  name: production
+  namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/aminrj/argocd-infra.git
-    targetRevision: HEAD
-    path: projects
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-  # Sync policy
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  description: Production project
+  sourceRepos:
+  - '*' 
+  destinations:
+  - server: https://kubernetes.default.svc
+    namespace: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: staging
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Staging project
+  sourceRepos:
+  - '*' 
+  destinations:
+  - server: https://kubernetes.default.svc
+    namespace: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
