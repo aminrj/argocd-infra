@@ -8,6 +8,7 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -18,5 +19,5 @@ spec:
            name: argocd-server
            port:
              number: 80
-    host: acme.com
+    host: argocd-server.192.168.49.2.nip.io
 
